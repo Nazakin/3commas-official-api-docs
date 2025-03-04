@@ -8,7 +8,7 @@ const HomePageWrapper = () => {
       <HomePageItem
         data={{
           title: "General information",
-          description: "How to start.",
+          description: "Get started.",
           icon: "generalInfo",
           link: "/general-information",
         }}
