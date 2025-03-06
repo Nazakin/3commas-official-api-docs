@@ -1,0 +1,32 @@
+@media (min-width: 997px){
+.sidebarBase {
+    transition: width 0.3s ease;
+    background-color: var(--navigation-background-color);
+    overflow-y: auto;
+}
+
+.sidebarPinned {
+    position: sticky;
+    top: var(--ifm-navbar-height);
+    z-index: 2;
+    height: calc(100vh - var(--ifm-navbar-height));
+}
+
+.sidebarUnpinned {
+    position: fixed;
+    z-index: 199;
+    height: calc(100vh - var(--ifm-navbar-height));
+}
+
+.sidebarOpen {
+    width: var(--doc-sidebar-width);
+}
+
+.sidebarClosed {
+    width: 0;
+}
+.sidebarBase aside{
+  margin-top: 0 !important;
+  height: 100%;
+}
+}
