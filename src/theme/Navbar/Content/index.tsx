@@ -68,6 +68,13 @@ export default function NavbarContent(): ReactNode {
         // TODO stop hardcoding items?
         <>
           {mobileSidebar.disabled ? null : <NavbarMobileSidebarToggle />}
+          {searchBarItem ? null : (
+              <div className={styles.mobileSearcContainer}>
+                <NavbarSearch>
+                  <SearchBar />
+                </NavbarSearch>
+              </div>
+          )}
           <NavbarLogo />
           <NavbarItems items={leftItems} />
         </>
@@ -77,9 +84,11 @@ export default function NavbarContent(): ReactNode {
         // Ask the user to add the respective navbar items => more flexible
         <>
           {searchBarItem ? null : (
+              <div className={styles.desktopSearcContainer}>
               <NavbarSearch>
                 <SearchBar />
               </NavbarSearch>
+              </div>
           )}
           <NavbarItems items={rightItems} />
           <NavbarColorModeToggle className={styles.colorModeToggle} />

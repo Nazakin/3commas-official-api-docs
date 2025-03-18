@@ -13,6 +13,11 @@
     .DocSearch-Hit-source{
         padding-left: 24px !important;
     }
+    .DocSearch-Hits ul {
+        display: flex !important;
+        gap: 4px !important;
+        flex-direction: column;
+    }
     .DocSearch-StartScreen{
         height: 165px !important;
         display: flex;
@@ -25,6 +30,8 @@
     .DocSearch-Footer{
         height: 82px !important;
         padding: 12px 0 !important;
+        border-bottom-left-radius: 16px !important;
+        border-bottom-right-radius: 16px !important;
     }
 }
 @media (max-width: 768px) {
@@ -93,6 +100,7 @@
     box-shadow: none !important;
     background-color: transparent !important;
     border: 1px solid var(--search-input-border-color);
+    border-radius: 8px !important;
 }
 .DocSearch-Form::before{
     width: 20px;
@@ -102,7 +110,7 @@
 .DocSearch-Input{
     height: 32px !important;
     font-weight: 600 !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
     line-height: 20px !important;
     letter-spacing: 0.25px !important;
 
@@ -133,7 +141,7 @@
 }
 .DocSearch-Hit-title{
     font-weight: 600;
-    font-size: 13px !important;
+    font-size: 14px !important;
     line-height: 20px;
     letter-spacing: 0.25px;
     vertical-align: middle;
@@ -144,8 +152,7 @@ li.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-action,
 li.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-icon,
 li.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-path,
 li.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-text,
-li.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-title,
-li.DocSearch-Hit[aria-selected=true] mark {
+li.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-title {
     color: var(--search-hit-text-color) !important;
 }
 section.DocSearch-Hits mark {
@@ -167,7 +174,7 @@ section.DocSearch-Hits mark {
     background-repeat: no-repeat;
 }
 .DocSearch-Hit-source{
-    background-color: transparent !important;
+    background-color: var(--search-modal-background-color) !important;
 }
 .DocSearch-Hit a{
     background-color: transparent !important;
@@ -337,15 +344,34 @@ section.DocSearch-Hits mark {
 }
 p.DocSearch-Title{
     font-weight: 400 !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
     line-height: 20px;
     letter-spacing: 0.25px;
     vertical-align: middle;
     margin-bottom: 0 !important;
 }
-.DocSearch-Reset:hover{
-    color: var(--ifm-link-color) !important;
+.DocSearch-Reset svg{
+    display: none;
 }
+.DocSearch-Reset{
+    width: 20px !important;
+    height: 20px !important;
+    background-image: var(--search-page-clear-svg) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    cursor: pointer !important;
+    border: none !important;
+    background-color: transparent !important;
+    outline: none !important;
+}
+.DocSearch-Reset:hover{
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_822_1284' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='3' y='3' width='14' height='14'%3E%3Cpath d='M4.99131 3.8128C4.66588 3.48737 4.13824 3.48737 3.8128 3.8128C3.48737 4.13824 3.48737 4.66588 3.8128 4.99144L8.82148 10.0001L3.81281 15.0087C3.48737 15.3341 3.48737 15.8617 3.81281 16.1872C4.13824 16.5126 4.66588 16.5126 4.99132 16.1872L9.99999 11.1785L15.0087 16.1872C15.3341 16.5126 15.8617 16.5126 16.1872 16.1872C16.5126 15.8617 16.5126 15.3341 16.1872 15.0087L11.1785 9.99999L16.1872 4.99131C16.5126 4.66588 16.5126 4.13824 16.1872 3.8128C15.8617 3.48737 15.3341 3.48737 15.0087 3.8128L9.99999 8.8216L4.99131 3.8128Z' fill='black'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_822_1284)'%3E%3Crect width='20' height='20' fill='%2300A59A'/%3E%3C/g%3E%3C/svg%3E") !important;
+}
+.searchResultItem:hover nav ul li{
+    color: var(--search-hit-text-color) !important;
+}
+
 .DocSearch-Hit-Tree{
     display: none;
 }
@@ -359,4 +385,10 @@ header h1{
 }
 main.docMainContainer_TBSr:has(> .searchPageTitle) {
     background-color: #1a8870 !important;
+}
+.DocSearch-Dropdown{
+    max-height: 75vh !important;
+}
+li.DocSearch-Hit[aria-selected=true] mark{
+    color: #00A59A !important;
 }

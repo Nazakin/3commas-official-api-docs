@@ -44,3 +44,9 @@
 .DocSearch-Search-Icon{
   display: none 
 }
+@media screen and (max-width: 996px){
+  .DocSearch-Button-Container::before{
+    width: 26px;
+    height: 26px;
+  }
+}

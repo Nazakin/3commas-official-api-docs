@@ -86,6 +86,7 @@ export const DocSearch = ({externalUrlRegex, ...props}: DocSearchProps)=> {
         onInput: handleInput,
         searchButtonRef,
     });
+    const shouldRenderModal = isOpen && DocSearchModal && searchContainer.current;
 
     return (
         <>
@@ -108,9 +109,7 @@ export const DocSearch = ({externalUrlRegex, ...props}: DocSearchProps)=> {
                 ref={searchButtonRef}
                 translations={props.translations?.button ?? translations.button}
             />
-            {isOpen &&
-                DocSearchModal &&
-                searchContainer.current &&
+            {shouldRenderModal ?
                 createPortal(
                     <DocSearchModal
                         onClose={closeModal}
@@ -129,7 +128,7 @@ export const DocSearch = ({externalUrlRegex, ...props}: DocSearchProps)=> {
                         searchParameters={searchParameters}
                     />,
                     searchContainer.current,
-                )}
+                ) : null}
         </>
     );
 }
