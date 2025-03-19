@@ -254,7 +254,7 @@ export const SearchPageContent = (): ReactNode => {
                 <meta property="robots" content="noindex, follow" />
             </Head>
 
-            <div className={`container margin-vert--lg ${styles.searchPageContainer}`}>
+            <div className={`container margin-vert--lg ${styles.searchPageContainer}`} id={'searchPageContainer'}>
                 <Heading as="h1" className={styles.searchPageTitle}>{getTitle()}</Heading>
 
                 <form className={`row ${styles.inputContainer}`} onSubmit={(e) => e.preventDefault()}>

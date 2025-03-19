@@ -12,7 +12,6 @@ div:has(> .searchPageTitle){
   letter-spacing: 0.3px;
   vertical-align: middle;
   margin-bottom: 16px !important;
-  padding-left: 16px !important;
 
 }
 .searchQueryInput,
@@ -85,12 +84,19 @@ div:has(> .searchPageTitle){
   display: block !important;
   width: 18px !important;
   height: 18px !important;
-  top: 25px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 24px;
   background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M4.5%2013.5002L13.5%204.50018%22%20stroke%3D%22%2313A8A1%22%20stroke-width%3D%221.3125%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M6.1875%204.50018H13.5V11.8127%22%20stroke%3D%22%2313A8A1%22%20stroke-width%3D%221.3125%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
   background-repeat: no-repeat !important;
   position: absolute;
 
+}
+#searchPageContainer main a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):not( .hash-link ):not(.tocLink_wfFo), main a:not(.home-line):not(.breadcrumbs__link):not(.pagination-link):hover:not( .hash-link ):not(.tocLink_wfFo){
+  text-decoration: none !important;
+}
+.searchResultItem:hover *{
+  text-decoration: none !important;
 }
 .searchResultItemHeading {
   font-weight: 600;
@@ -153,7 +159,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   outline: none;
 }
 .clearButton:hover{
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_822_1284' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='3' y='3' width='14' height='14'%3E%3Cpath d='M4.99131 3.8128C4.66588 3.48737 4.13824 3.48737 3.8128 3.8128C3.48737 4.13824 3.48737 4.66588 3.8128 4.99144L8.82148 10.0001L3.81281 15.0087C3.48737 15.3341 3.48737 15.8617 3.81281 16.1872C4.13824 16.5126 4.66588 16.5126 4.99132 16.1872L9.99999 11.1785L15.0087 16.1872C15.3341 16.5126 15.8617 16.5126 16.1872 16.1872C16.5126 15.8617 16.5126 15.3341 16.1872 15.0087L11.1785 9.99999L16.1872 4.99131C16.5126 4.66588 16.5126 4.13824 16.1872 3.8128C15.8617 3.48737 15.3341 3.48737 15.0087 3.8128L9.99999 8.8216L4.99131 3.8128Z' fill='black'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_822_1284)'%3E%3Crect width='20' height='20' fill='%2300A59A'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: var(--search-page-clear-svg-hover);
 }
 .searchResultItem:hover nav ul li{
   color: var(--search-hit-text-color) !important;
@@ -170,6 +176,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 @media screen and (min-width: 997px){
   div:has(> .searchPageTitle){
     margin: 0 !important;
+  }
+  .searchPageTitle{
     padding-left: 16px !important;
   }
 
@@ -177,6 +185,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 @media only screen and (max-width: 996px) {
   div:has(> .searchPageTitle){
     width: 100%;
+    padding-right: 0!important;
 
   }
   .searchVersionColumn {
@@ -185,6 +194,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
   .searchResultsColumn {
     max-width: 60% !important;
+    padding-left: 20px;
   }
 
   .searchLogoColumn {
@@ -193,6 +203,24 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   }
   .searchResultItem{
     padding-left: 20px !important;
+    border-radius: 0 !important;
+  }
+  .searchQueryColumn{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .searchQueryColumn::before{
+    left: 32px;
+  }
+  .clearButton{
+    right: 32px;
+  }
+  main a > .searchResultItem{
+    margin-right: -16px;
+    margin-left: -16px;
+  }
+  .searchPageTitle{
+    padding-left: 8px;
   }
 }
 
@@ -235,3 +263,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   background: rgb(255 215 142 / 25%);
   padding: 0.09em 0;
 }
+article.searchResultItem:hover p:last-of-type{
+  color: var(--search-hit-text-color) !important;
+  text-decoration: none !important;
+}
+
