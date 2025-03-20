@@ -32,6 +32,10 @@ div:has(> .searchPageTitle){
   font-family: "Open Sans", sans-serif;
   padding-left: 38px;
 }
+.searchQueryInput::placeholder,
+.searchVersionInput::placeholder{
+  color: var(--text-content-color) !important;
+}
 /*.searchLogoColumn svg{*/
 /*  display: none;*/
 /*}*/

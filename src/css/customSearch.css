@@ -139,6 +139,9 @@
     letter-spacing: 0.25px !important;
 
 }
+.DocSearch-Input::placeholder{
+    color: var(--text-content-color) !important;
+}
 .DocSearch-LoadingIndicator{
     display: none !important;
 }

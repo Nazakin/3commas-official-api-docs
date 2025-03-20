@@ -1030,6 +1030,9 @@ li.menu__list-item > .category-title-hr.titled {
   .navbar-sidebar__close {
     margin-left: 0;
   }
+  .navbar-sidebar__close g{
+    stroke: var(--ifm-heading-color) !important;
+  }
 
   .navbar__item .iconExternalLink_nPIU {
     display: none !important;
