@@ -11,7 +11,7 @@
         overflow-x: hidden;
     }
     .DocSearch-Hit-source{
-        padding-left: 24px !important;
+        padding-left: 20px !important;
     }
     .DocSearch-Hits ul {
         display: flex !important;
@@ -38,6 +38,9 @@
     }
     .DocSearch-NoResults-Prefill-List p.DocSearch-Help{
         margin-left: 16px !important;
+    }
+    .DocSearch-Hit[aria-selected=true] a {
+        border-radius: 0 !important;
     }
 }
 @media (max-width: 768px) {
@@ -149,7 +152,7 @@
     font-weight: 600 !important;
     font-size: 10px !important;
     line-height: 20px !important;
-    letter-spacing: 2px;
+    letter-spacing: 1.25px;
     vertical-align: middle;
     text-transform: uppercase;
     color: var(--search-input-hit-source) !important;
