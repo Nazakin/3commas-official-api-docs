@@ -1088,7 +1088,7 @@ li.menu__list-item > .category-title-hr.titled {
   border-bottom-right-radius: 1rem !important;
   border-bottom-left-radius: 1rem !important;
 }
-.theme-doc-sidebar-item-category:last-of-type{
-  display: none;
+.theme-doc-sidebar-menu li:has(div a[href="/search"]) {
+  display: none !important;
 }
 
