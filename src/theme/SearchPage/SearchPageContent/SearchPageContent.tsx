@@ -257,7 +257,7 @@ export const SearchPageContent = (): ReactNode => {
             <div className={`container margin-vert--lg ${styles.searchPageContainer}`} id={'searchPageContainer'}>
                 <Heading as="h1" className={styles.searchPageTitle}>{getTitle()}</Heading>
 
-                <form className={`row ${styles.inputContainer}`} onSubmit={(e) => e.preventDefault()}>
+                <form className={clsx('row', styles.inputContainer)} onSubmit={(e) => e.preventDefault()}>
                     <div
                         className={clsx('col', styles.searchQueryColumn, {
                             'col--9': docsSearchVersionsHelpers.versioningEnabled,
@@ -292,7 +292,7 @@ export const SearchPageContent = (): ReactNode => {
                     )}
                 </form>
 
-                <div className="row">
+                <div className={clsx('row', styles.searchResultContainer)}>
                     <div className={clsx('col', 'col--8', styles.searchResultsColumn)}>
                         {!!searchResultState.totalResults &&
                             documentsFoundPlural(searchResultState.totalResults)}
