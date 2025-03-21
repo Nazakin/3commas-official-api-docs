@@ -78,7 +78,7 @@ export const SearchPageContent = (): ReactNode => {
         },
         initialSearchResultState,
     );
-    useHideUI(['#breadcrumbsArea', '.pagination_zBJ0']);
+    useHideUI(['#breadcrumbsArea', '.pagination_zBJ0', '.theme-doc-markdown header h1']);
     // respect settings from the theme config for facets
     const disjunctiveFacets = contextualSearch
         ? ['language', 'docusaurus_tag']

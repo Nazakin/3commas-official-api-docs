@@ -420,9 +420,6 @@ p.DocSearch-Title{
     background: transparent !important;
     padding: 0 !important;
 }
-header h1{
-    display: none;
-}
 main.docMainContainer_TBSr:has(> .searchPageTitle) {
     background-color: #1a8870 !important;
 }

@@ -180,6 +180,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .noResultsContainer p {
   margin-bottom: 0;
 }
+.searchLogoColumn a svg path{
+  fill: var(--search-page-logo-color);
+}
 @media screen and (min-width: 997px){
   div:has(> .searchPageTitle){
     margin: 0 !important;
