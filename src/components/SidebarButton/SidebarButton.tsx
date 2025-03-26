@@ -4,6 +4,7 @@ import {useSidebarContext} from "@site/src/context/SidebarContext";
 import styles from './SidebarButton.module.css'
 import {SidebarButtonIcon} from "@site/src/icons/SidebarButtonIcon";
 import clsx from "clsx";
+import {SidebarButtonIconActive} from "@site/src/icons/SidebarButtonIconActive";
 
 export default function SidebarButton() {
     const {
@@ -37,10 +38,9 @@ export default function SidebarButton() {
             onClick={handleClick}
             className={clsx(
                 styles.sidebarOpenButton,
-                isPinned && styles.sidebarOpenButtonPinned
             )}
         >
-            <SidebarButtonIcon/>
+            {isPinned ? <SidebarButtonIconActive/> :<SidebarButtonIcon/>}
         </button>
     );
 }

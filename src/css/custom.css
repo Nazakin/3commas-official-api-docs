@@ -834,7 +834,7 @@ li.menu__list-item > .category-title-hr.titled {
   align-items: center;
   justify-content: space-between;
   width: 300px;
-  padding-left: 24px;
+  padding-left: 16px;
   border-right: 1px solid var(--navigation-border-color);
 }
 .navbar__left__content__pinned{
