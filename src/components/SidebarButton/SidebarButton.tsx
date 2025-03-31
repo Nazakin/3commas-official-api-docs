@@ -1,10 +1,9 @@
 import React, { useRef } from 'react';
-import {useSidebarContext} from "@site/src/context/SidebarContext";
-
-import styles from './SidebarButton.module.css'
-import {SidebarButtonIcon} from "@site/src/icons/SidebarButtonIcon";
+import { useSidebarContext } from "@site/src/context/SidebarContext";
+import styles from './SidebarButton.module.css';
 import clsx from "clsx";
-import {SidebarButtonIconActive} from "@site/src/icons/SidebarButtonIconActive";
+import { SidebarButtonIcon } from "@site/src/icons/SidebarButtonIcon";
+import { SidebarButtonIconActive } from "@site/src/icons/SidebarButtonIconActive";
 
 export default function SidebarButton() {
     const {
@@ -13,22 +12,33 @@ export default function SidebarButton() {
         openSidebarAbsolute,
         togglePin,
         scheduleClose,
+        cancelScheduledClose,
     } = useSidebarContext();
 
+    const manualUnpinRef = useRef(false);
+
     const handleMouseEnter = () => {
+        cancelScheduledClose()
+        if (manualUnpinRef.current) return;
         if (!isPinned && !isOpen) {
             openSidebarAbsolute();
         }
     };
 
     const handleMouseLeave = () => {
+        manualUnpinRef.current = false;
         if (!isPinned) {
-            scheduleClose(200);
+            scheduleClose(500);
         }
     };
 
     const handleClick = () => {
-        togglePin();
+        if (isPinned) {
+            togglePin();
+            manualUnpinRef.current = true;
+        } else {
+            togglePin();
+        }
     };
 
     return (
@@ -36,11 +46,9 @@ export default function SidebarButton() {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
-            className={clsx(
-                styles.sidebarOpenButton,
-            )}
+            className={clsx(styles.sidebarOpenButton)}
         >
-            {isPinned ? <SidebarButtonIconActive/> :<SidebarButtonIcon/>}
+            {isPinned ? <SidebarButtonIconActive /> : <SidebarButtonIcon />}
         </button>
     );
 }
