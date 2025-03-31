@@ -2,7 +2,7 @@
     display: none;
 }
 
-@media (min-width: 997px) and (max-width: 1440px){
+@media (min-width: 997px) and (max-width: 1700px){
     .sidebarOpenButton{
         display: flex;
         align-items: center;

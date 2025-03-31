@@ -1,4 +1,4 @@
-@media (min-width: 997px) {
+@media (min-width: 997px) and (max-width: 1700px){
     .hoverZone {
         position: fixed;
         left: 0;

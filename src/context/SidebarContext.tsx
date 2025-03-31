@@ -92,13 +92,12 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 1440 && !isPinned) {
+            if ((window.innerWidth >= 1700 || window.innerWidth <= 996) && !isPinned) {
                 pinSidebar();
             }
         };
 
         window.addEventListener('resize', handleResize);
-        // Викликаємо один раз при монтуванні
         handleResize();
         return () => window.removeEventListener('resize', handleResize);
     }, [isPinned, pinSidebar]);

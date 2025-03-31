@@ -26,24 +26,30 @@ export default function SidebarWrapper(props: Props): JSX.Element {
 
     return (
         <>
-            {(!isOpen && !isPinned) && <SidebarHoverZone />}
-            <div
-                className={clsx(
-                    styles.sidebarBase,
-                    isPinned ? styles.sidebarPinned : styles.sidebarUnpinned,
-                )}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            >
-                <div
-                    className={clsx(
-                        styles.sidebarAnimated,
-                        isOpen ? styles.sidebarAnimatedOpen : styles.sidebarAnimatedClosed
-                    )}
-                >
-                    {isOpen && <Sidebar {...props} />}
-                </div>
-            </div>
+            {window.innerWidth > 996 ? (
+                <>
+                    {(!isOpen && !isPinned) && <SidebarHoverZone />}
+                    <div
+                        className={clsx(
+                            styles.sidebarBase,
+                            isPinned ? styles.sidebarPinned : styles.sidebarUnpinned
+                        )}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        <div
+                            className={clsx(
+                                styles.sidebarAnimated,
+                                isOpen ? styles.sidebarAnimatedOpen : styles.sidebarAnimatedClosed
+                            )}
+                        >
+                            {isOpen && <Sidebar {...props} />}
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <Sidebar {...props} />
+            )}
         </>
     );
 }
