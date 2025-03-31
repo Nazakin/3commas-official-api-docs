@@ -11,9 +11,11 @@ export default function SidebarButton() {
         openSidebarAbsolute,
         togglePin,
         scheduleClose,
+        cancelScheduledClose,
     } = useSidebarContext();
 
     const handleMouseEnter = () => {
+        cancelScheduledClose()
         if (!isPinned && !isOpen) {
             openSidebarAbsolute();
         }

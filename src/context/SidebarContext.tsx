@@ -4,7 +4,7 @@ import React, {
     useState,
     useRef,
     useCallback,
-    ReactNode,
+    ReactNode, useEffect,
 } from 'react';
 
 interface SidebarContextType {
@@ -24,7 +24,7 @@ const SidebarContext = createContext<SidebarContextType | null>(null);
 export function useSidebarContext(): SidebarContextType {
     const context = useContext(SidebarContext);
     if (!context) {
-        throw new Error('Hey DUDE');
+        throw new Error('Providing context went wrong');
     }
     return context;
 }
@@ -38,7 +38,6 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
     const [isPinned, setIsPinned] = useState(false);
     const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    // Відкриваємо сайдбар в абсолютному режимі (не pinned)
     const openSidebarAbsolute = useCallback(() => {
         if (!isPinned) {
             setIsOpen(true);
@@ -90,6 +89,19 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
             pinSidebar();
         }
     }, [isPinned, pinSidebar, unpinSidebar]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1440 && !isPinned) {
+                pinSidebar();
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        // Викликаємо один раз при монтуванні
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isPinned, pinSidebar]);
 
     const value: SidebarContextType = {
         isOpen,

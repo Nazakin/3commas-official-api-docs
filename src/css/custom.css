@@ -791,6 +791,7 @@ li.menu__list-item > .category-title-hr {
     box-shadow: none;
     border-bottom: 1px solid var(--navigation-border-header-color);
     background: var(--navigation-background-color);
+    z-index: 201;
   }
   .navbar__left__content{
     display: flex;

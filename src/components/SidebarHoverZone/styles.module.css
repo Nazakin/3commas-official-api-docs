@@ -6,9 +6,10 @@
         bottom: 0;
         width: 20px;
         background-color: transparent;
+        opacity: 0.5;
         cursor: pointer;
         height: 100%;
-        z-index: 100;
+        z-index: 200;
         transition: background-color 0.1s linear;
     }
 
