@@ -48,6 +48,9 @@
   --menu-link-color-active: #13a8a1;
   --home-page-icon-background-color: #f8f8f8;
 
+  --sidebar-button-color: rgb(184, 184, 184);
+  --sidebar-button-color-hover: rgb(128, 128, 128);;
+
   @media (min-width: 997px) {
     --ifm-global-spacing: 1.5rem;
   }
@@ -84,6 +87,8 @@
   --menu-link-primary-color: #ffffff;
   --sidebar-links-color: #9fa2a8;
   --home-page-icon-background-color: #2c2e30;
+  --sidebar-button-color: rgb(87, 105, 122);
+  --sidebar-button-color-hover: rgb(114, 143, 170);;
 }
 
 #__docusaurus {
@@ -994,7 +999,10 @@ li.menu__list-item > .category-title-hr.titled {
     justify-content: space-between;
     height: 68px;
   }
-
+  .navbar__toggle svg{
+    width: 30px;
+    height: 30px;
+  }
   .navbar-sidebar__item {
     display: flex;
     flex-direction: column;

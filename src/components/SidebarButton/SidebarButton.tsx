@@ -41,14 +41,16 @@ export default function SidebarButton() {
         }
     };
 
+    // @ts-ignore
     return (
         <button
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
-            className={clsx(styles.sidebarOpenButton)}
+            className={clsx(styles.sidebarOpenButton,
+                isPinned && styles.sidebarOpenButtonPinned)}
         >
-            {isPinned ? <SidebarButtonIconActive /> : <SidebarButtonIcon />}
+            {isPinned ? <SidebarButtonIcon />: <SidebarButtonIconActive />}
         </button>
     );
 }
