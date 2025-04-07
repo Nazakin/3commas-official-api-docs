@@ -871,11 +871,16 @@ li.menu__list-item > .category-title-hr.titled {
     left: 316px;
   }
 
+
   body.DocSearch--active .breadcrumbsContainer {
     z-index: var(--ifm-z-index-fixed);
   }
 }
-
+@media (min-width: 1200px) and (max-width: 1534px){
+  #breadcrumbsContainer.scrolledClass{
+    display: none;
+  }
+}
 @media (min-width: 1534px) {
   #breadcrumbsContainer {
     position: fixed !important;
