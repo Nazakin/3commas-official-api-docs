@@ -18,7 +18,7 @@
       var(--ifm-container-width) + var(--doc-sidebar-width)
     ) !important;
   }
-  .docMainContainerWidth{
+  .docMainContainerWidth {
     max-width: 100% !important;
   }
 }
