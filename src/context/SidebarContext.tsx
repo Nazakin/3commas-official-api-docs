@@ -1,12 +1,5 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useRef,
-  useCallback,
-  ReactNode,
-  useEffect,
-} from "react";
+import React, { createContext, useContext, useState, useRef, useCallback, ReactNode, useEffect } from "react";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 interface SidebarContextType {
   isOpen: boolean;
@@ -28,6 +21,10 @@ export function useSidebarContext(): SidebarContextType {
     throw new Error("Providing context went wrong");
   }
   return context;
+}
+
+export function useSidebarContextOptional(): SidebarContextType | null {
+  return useContext(SidebarContext);
 }
 
 interface SidebarProviderProps {
@@ -66,17 +63,17 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
   }, []);
 
   const scheduleClose = useCallback(
-    (delayMs: number) => {
-      if (isPinned) return;
-      if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
-      }
-      closeTimeoutRef.current = setTimeout(() => {
-        setIsOpen(false);
-        closeTimeoutRef.current = null;
-      }, delayMs);
-    },
-    [isPinned],
+      (delayMs: number) => {
+        if (isPinned) return;
+        if (closeTimeoutRef.current) {
+          clearTimeout(closeTimeoutRef.current);
+        }
+        closeTimeoutRef.current = setTimeout(() => {
+          setIsOpen(false);
+          closeTimeoutRef.current = null;
+        }, delayMs);
+      },
+      [isPinned],
   );
 
   const cancelScheduledClose = useCallback(() => {
@@ -97,8 +94,8 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
   useEffect(() => {
     const handleResize = () => {
       if (
-        (window.innerWidth >= 1700 || window.innerWidth <= 996) &&
-        !isPinned
+          (window.innerWidth >= 1700 || window.innerWidth <= 996) &&
+          !isPinned
       ) {
         pinSidebar();
       }
@@ -122,6 +119,8 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
   };
 
   return (
-    <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>
+      <SidebarContext.Provider value={value}>
+        {children}
+      </SidebarContext.Provider>
   );
 }
